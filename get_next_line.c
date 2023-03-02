@@ -6,15 +6,16 @@
 /*   By: digil-pa <digil-pa@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 15:39:22 by digil-pa          #+#    #+#             */
-/*   Updated: 2023/01/16 00:58:08 by digil-pa         ###   ########.fr       */
+/*   Updated: 2023/03/02 13:26:31 by digil-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <fcntl.h>
 
 char	*get_next_line(int fd)
 {
-	static char	buff[BUFFER_SIZE + 1];
+	static char		buff[BUFFER_SIZE + 1];
 	char		*line;
 	int			k;
 
@@ -33,4 +34,18 @@ char	*get_next_line(int fd)
 			break ;
 	}
 	return (line);
+}
+
+int main()
+{
+	int fd;
+	int i;
+	
+	i = 0;
+	fd = open("a.txt", O_RDONLY);
+	while (i < 8)
+	{
+		printf("line%d: %s\n", i, get_next_line(fd));
+		i++;
+	}	
 }

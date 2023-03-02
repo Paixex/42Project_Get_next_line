@@ -6,7 +6,7 @@
 /*   By: digil-pa <digil-pa@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 11:55:22 by digil-pa          #+#    #+#             */
-/*   Updated: 2023/01/16 00:58:12 by digil-pa         ###   ########.fr       */
+/*   Updated: 2023/03/02 13:25:59 by digil-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,47 +26,47 @@ size_t	ft_strlen(char *str)
 	return (k);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin(char *line, char *buffer)
 {
 	int		k;
-	char	*j;
+	char	*final;
 
 	k = 0;
-	j = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-	if (!j)
+	final = malloc(ft_strlen(line) + ft_strlen(buffer) + 1);
+	if (!final)
 		return (NULL);
-	while (s1 && s1[k])
+	while (line && line[k])
 	{
-		j[k] = s1[k];
+		final[k] = line[k];
 		k++;
 	}
-	free (s1);
-	while (*s2)
+	free (line);
+	while (*buffer)
 	{
-		j[k++] = *s2;
-		if (*s2++ == '\n')
+		final[k++] = *buffer;
+		if (*buffer++ == '\n')
 			break ;
 	}
-	j[k] = '\0';
-	return (j);
+	final[k] = '\0';
+	return (final);
 }
 
-int	ft_strclean(char *str)
+int	ft_strclean(char *buff)
 {
 	int	k;
 	int	j;
-	int	line;
+	int	line_completed;
 
 	k = 0;
 	j = 0;
-	line = 0;
-	while (str[k])
+	line_completed = 0;
+	while (buff[k])
 	{
-		if (line)
-			str[j++] = str[k];
-		if (str[k] == '\n')
-			line = 1;
-		str[k++] = '\0';
+		if (line_completed)
+			buff[j++] = buff[k];
+		if (buff[k] == '\n')
+			line_completed = 1;
+		buff[k++] = '\0';
 	}
-	return (line);
+	return (line_completed);
 }
