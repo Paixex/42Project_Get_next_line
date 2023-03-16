@@ -6,7 +6,7 @@
 /*   By: digil-pa <digil-pa@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 11:55:22 by digil-pa          #+#    #+#             */
-/*   Updated: 2023/03/02 13:25:59 by digil-pa         ###   ########.fr       */
+/*   Updated: 2023/03/16 12:57:42 by digil-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char	*ft_strjoin(char *line, char *buffer)
 	return (final);
 }
 
-int	ft_strclean(char *buff)
+int	clean_to_zero(char *buff)
 {
 	int	k;
 	int	j;

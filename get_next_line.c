@@ -6,7 +6,7 @@
 /*   By: digil-pa <digil-pa@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 15:39:22 by digil-pa          #+#    #+#             */
-/*   Updated: 2023/03/02 13:26:31 by digil-pa         ###   ########.fr       */
+/*   Updated: 2023/03/16 12:58:06 by digil-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ char	*get_next_line(int fd)
 	while (buff[0] || read(fd, buff, BUFFER_SIZE) > 0)
 	{
 		line = ft_strjoin(line, buff);
-		if (ft_strclean(buff))
+		if (clean_to_zero(buff))
 			break ;
 	}
 	return (line);
 }
 
-int main()
+/*int main()
 {
 	int fd;
 	int i;
@@ -48,4 +48,4 @@ int main()
 		printf("line%d: %s\n", i, get_next_line(fd));
 		i++;
 	}	
-}
+}*/
